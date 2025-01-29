@@ -1,0 +1,41 @@
+name: Build and Release Executable
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      
+      - name: Install Dependencies
+        run: |
+          pip install pyinstaller pdfplumber pandas
+      
+      - name: Build Executable
+        run: |
+          pyinstaller --onefile --windowed extractor.spec
+      
+      - name: Package Executable
+        run: |
+          mkdir release
+          mv dist/PositionLogExtractor.exe release/
+          cd release
+          zip -r PositionLogExtractor.zip PositionLogExtractor.exe
+      
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: release/PositionLogExtractor.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

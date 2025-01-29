@@ -24,14 +24,13 @@ jobs:
       
       - name: Build Executable
         run: |
-          pyinstaller extractor.spec
+          cd dist/PositionLogExtractor
+          zip -r ../../PositionLogExtractor.zip .
       
       - name: Package Executable
         run: |
-          mkdir release
-          mv dist/PositionLogExtractor.exe release/
-          cd release
-          zip -r PositionLogExtractor.zip PositionLogExtractor.exe
+ 
+          zip -r PositionLogExtractor.zip dist/PositionLogExtractor
       
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1

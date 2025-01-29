@@ -28,8 +28,10 @@ jobs:
       
       - name: Package Executable
         run: |
-          cd dist/PositionLogExtractor
-          zip -r ../../PositionLogExtractor.zip .
+          mkdir release
+          mv dist/* release/
+          Compress-Archive -Path release/* -DestinationPath PositionLogExtractor.zip
+        shell: pwsh
       
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1

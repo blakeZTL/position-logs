@@ -5,7 +5,6 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 import webbrowser
 
-#
 class PositionLogExtractor:
     def __init__(self, root):
         self.root = root

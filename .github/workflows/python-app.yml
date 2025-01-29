@@ -30,7 +30,7 @@ jobs:
         run: |
           mkdir release
           mv dist/* release/
-          Compress-Archive -Path release/* -DestinationPath PositionLogExtractor.zip
+          Compress-Archive -Path release/* -DestinationPath release/PositionLogExtractor.zip
         shell: pwsh
       
       - name: Create GitHub Release

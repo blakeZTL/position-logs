@@ -24,7 +24,7 @@ jobs:
       
       - name: Build Executable
         run: |
-          pyinstaller --onefile --windowed extractor.spec
+          pyinstaller extractor.spec
       
       - name: Package Executable
         run: |

@@ -32,7 +32,7 @@ python main.py
 ### Extracting Data
 1. Click **Select PDFs** to choose one or more PDF files.
 2. Click **Extract** to process the files.
-3. The distinct initials will be extracted and saved as `Distinct_Initials_Combined.csv`, with the extracted date appended, in your **Downloads** folder.
+3. The distinct initials will be extracted and saved as `Distinct_Initials_Combined_{DATE-HERE}.csv`, with the extracted date appended, in your **Downloads** folder.
 4. A pop-up notification will appear with a link to the file.
 
 ## Creating an Executable
